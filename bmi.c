@@ -15,22 +15,13 @@ float BMI;
     
     BMI = peso / (altura * altura);
     
-    printf("Su BMI es de %.2f", BMI);
+    printf("Su BMI o indice de masa corporal es de %.2f\n\n", BMI);
     
-    
-    if (BMI <= 18.5)
-    printf(", esto indica que tiene bajo peso");
-    
-    if (18.5 < BMI)
-     if  (BMI < 24.9)
-      printf(", esto indica que su condicion es normal");
-    
-    if (25 < BMI)
-     if (BMI < 29.9)
-      printf(", esto indica que tiene sobrepeso");
-    
-    if (30 <= BMI)
-    printf(", esto indica que usted tiene obesidad");
-    
+	printf("Indice - condición \n"); 
+	printf("------------------\n"); 
+	printf("<18.5 - Bajo peso\n");
+	printf("18.5 a 24.9 - Normal\n");
+	printf("25.0 a 29.9 - Sobrepeso \n");
+	printf(">=30 - Obesidad\n\n");
     return 0;
 }
