@@ -6,13 +6,27 @@ float peso;
 float altura;
 float BMI;
 
-    printf("Esta es una calculadora de indice de masa corporal\n");
-    printf("Ingrese su peso en kg: ");
-    scanf("%f", &peso);
+	printf("Esta es una calculadora de indice de masa corporal\n");
+	
+	do {
+		printf("Ingrese su peso en kg: ");
+		scanf("%f", &peso);
+		
+		if (peso <= 0) 
+			printf("Error: El peso debe ser un número positivo.\n");
+		
+	} while (peso <= 0);
+	
+	do {
+		printf("Ahora ingrese su estatura en metros: ");
+		scanf("%f", &altura);
+		
+		if (altura <= 0)
+			printf("Error: La altura debe ser un número positivo.\n");
+		
+	} while(altura <= 0);
     
-    printf("Ahora coloque su estatura en metros: ");
-    scanf("%f", &altura);
-    
+	
     BMI = peso / (altura * altura);
     
     printf("Su BMI o indice de masa corporal es de %.2f", BMI);
