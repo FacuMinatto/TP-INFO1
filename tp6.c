@@ -53,7 +53,7 @@ int main()
 	int fig;
 	
 	printf("Bienvenido a la calculadora de Area y perimetro!\n");
-	printf("¿Que figura desea calcular?\n\n");
+	printf("Â¿Que figura desea calcular?\n\n");
 	printf("| 1 | Rectangulo.\n| 2 | Circulo.\n\n");
 	scanf("%d", &fig);
 	
@@ -61,7 +61,7 @@ int main()
 		
 		printf("\nIngrese un valor dentro del rango permitido.\n");
 		printf("\n----------------------------------------------\n");
-		printf("\n¿Que figura desea calcular?\n\n");
+		printf("\nÂ¿Que figura desea calcular?\n\n");
 		printf("| 1 | Rectangulo.\n| 2 | Circulo.\n\n");
 		scanf("%d", &fig);
 		
@@ -72,7 +72,7 @@ int main()
 	case 1:
 		
 		printf("\n----------------------------------------------\n");
-		printf("\nUsted selecciono la opción del rectangulo.\n\n");
+		printf("\nUsted selecciono la opciÃ³n del rectangulo.\n\n");
 		printf("(Utilice punto sino es entero)\n");
 		printf("Ingrese su alto: ");
 		scanf("%f", &alto);
