@@ -52,7 +52,7 @@ void imprimirResultado (float resarea, float resper);
 void imprimirResultado (float resarea, float resper)
 {
 	printf("\nEl Area es de: %f \n", resarea);
-	printf("El Perametro es de: %f \n", resper);
+	printf("El Perimetro es de: %f \n", resper);
 }
 
 
@@ -100,8 +100,8 @@ int main()
 		printf("\nIngrese su radio (Utilice punto sino es entero): ");
 		scanf("%f", &rad);
 		
-		calcularAreaCirculo (rad); 
-		calcularPerimetroCirculo (rad);
+		resarea = calcularAreaCirculo (rad); 
+		resper = calcularPerimetroCirculo (rad);
 		
 		break;
 	}
