@@ -2,46 +2,54 @@
 #include <math.h>
 #define pi 3.14
 
-float rad, resarea, resper, alto, ancho, resdiag; 
+float calcularAreaCirculo (float rad);
 
-void calcularAreaCirculo (float rad);
-
-void calcularAreaCirculo (float rad)
+float calcularAreaCirculo (float rad)
 {
+	float resarea;
 	resarea = (rad * rad) * pi;
+	return resarea;
 }
 
-void calcularPerimetroCirculo (float rad);
+float calcularPerimetroCirculo (float rad);
 
-void calcularPerimetroCirculo (float rad)
+float calcularPerimetroCirculo (float rad)
 {
+	float resper;
 	resper = 2 * pi * rad;  
+	return resper;
 }
 
-void calcularAreaRectangulo (float alto, float ancho);
+float calcularAreaRectangulo (float alto, float ancho);
 
-void calcularAreaRectangulo (float alto, float ancho)
+float calcularAreaRectangulo (float alto, float ancho)
 {
+	float resarea;
 	resarea = alto * ancho;
+	return resarea;
 }
 
-void calcularPerimetroRectangulo (float alto, float ancho);
+float calcularPerimetroRectangulo (float alto, float ancho);
 
-void calcularPerimetroRectangulo (float alto, float ancho)
+float calcularPerimetroRectangulo (float alto, float ancho)
 {
+	float resper;
 	resper = alto * 2 + ancho * 2;
+	return resper;
 }
 
-void calcularDiagonalRectangulo (float alto, float ancho);
+float calcularDiagonalRectangulo (float alto, float ancho);
 
-void calcularDiagonalRectangulo (float alto, float ancho)
+float calcularDiagonalRectangulo (float alto, float ancho)
 {
+	float resdiag;
 	resdiag = sqrt((alto*alto) + (ancho*ancho));
+	return resdiag;
 }
 
-void imprimirResultado (void);
+void imprimirResultado (float resarea, float resper);
 
-void imprimirResultado (void)
+void imprimirResultado (float resarea, float resper)
 {
 	printf("\nEl Area es de: %f \n", resarea);
 	printf("El Perametro es de: %f \n", resper);
@@ -51,6 +59,7 @@ void imprimirResultado (void)
 int main()
 {
 	int fig;
+	float rad, alto, ancho, resarea, resper, resdiag;
 	
 	printf("Bienvenido a la calculadora de Area y perimetro!\n");
 	printf("¿Que figura desea calcular?\n\n");
@@ -79,9 +88,9 @@ int main()
 		printf("Ingrese su ancho: ");
 		scanf("%f", &ancho);
 		
-		calcularAreaRectangulo (alto, ancho);
-		calcularPerimetroRectangulo (alto, ancho);
-		calcularDiagonalRectangulo (alto, ancho);
+		resarea = calcularAreaRectangulo (alto, ancho);
+		resper = calcularPerimetroRectangulo (alto, ancho);
+		resdiag = calcularDiagonalRectangulo (alto, ancho);
 		
 		break;
 		
@@ -95,10 +104,9 @@ int main()
 		calcularPerimetroCirculo (rad);
 		
 		break;
-		
 	}
 	
-	imprimirResultado();
+	imprimirResultado (resarea, resper);
 	
 	return 0;
 }
