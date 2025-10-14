@@ -38,6 +38,9 @@ int main (void) {
 	
 	mostrar_piezas("rechazadas", p_rechazadas, n_rechazar);
 	
+    free(p_rectificables);
+    free(p_rechazadas);
+    
 	return 0;
 }
 
@@ -45,7 +48,7 @@ int main (void) {
 int cuantas_piezas(int max) {
 	int n;
 	do {
-		printf("Cu�ntas piezas ingresar�? ");
+		printf("Cuántas piezas ingresará? ");
 		scanf("%d", &n);
 	} while (n < 0 || n > max);
 	return n;
@@ -68,14 +71,16 @@ int rechazada(float diametro, float valor) {
 void cargar_piezas(float *p, int n){
 	
 	for (int i = 0; i < n; i++){
-		printf("Ingrese el diametro de la pieza n� %d: ", i + 1);
-		scanf("%f", (p + i));
-		
-		while (*(p + i) < 0){
-			printf("ERROR. Ese diametro no es positivo.\n");
-			printf("Ingrese un diametro positivo.\n");
-			scanf("%f", (p + i));
-		}
+    
+        do {
+            printf("Ingrese el diámetro de la pieza n° %d: ", i + 1);
+            scanf("%f", (p + i));
+            
+            if (*(p + i) < 0){
+                printf("ERROR. Ese diámetro no es positivo.\n");
+	    		printf("Ingrese un diámetro positivo.\n");
+			}
+        } while (*(p + i) < 0);
 	}
 }
 	
@@ -118,6 +123,6 @@ void mostrar_piezas(char *mensaje, float *p, int n){
     
     for (int i = 0; i < n; i++) {
     
-    printf("Diametro: %.2f\n", *(p + i));
+    printf("Diámetro: %.2f\n", *(p + i));
     }
 }
