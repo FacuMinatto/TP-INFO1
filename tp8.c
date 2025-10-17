@@ -84,45 +84,48 @@ void cargar_piezas(float *p, int n){
 	}
 }
 	
-	int contar(int (*criterio)(float, float), float valor, float *p, int n){
+int contar(int (*criterio)(float, float), float valor, float *p, int n){
 		
-		int cont = 0;
+	int cont = 0;
 		
-		for (int i = 0; i < n; i++){
-			
-			if ( (*criterio)(*(p + i), valor) == 1 )
-				cont++;
+	for (int i = 0; i < n; i++){
+		
+		if ( (*criterio)(*(p + i), valor) == 1 )
+			cont++;
 		}
-		return cont;
+	return cont;
+}
+
+float* reservar_memoria(int n){
+	
+	float *p = malloc(n * sizeof(float));
+	
+	if(p == NULL)
+		exit(1);
+	
+	return p;
+}
+	
+void segregar(int (*criterio)(float, float), float valor, float *p, int n, float *q) {
+
+	int var = 0;
+	
+	for (int i = 0; i < n; i++) {
+	
+		if (criterio(*(p + i), valor) == 1) {
+	
+			*(q + var) = *(p + i);
+			var++;
+		}
 	}
-		
-		float* reservar_memoria(int n){
-			
-			float *p = malloc(n * sizeof(float));
-			
-			return p;        // Falta que pueda chequear si se pidió coeeegamela memoria.
-		}
-			
-			void segregar(int (*criterio)(float, float), float valor, float *p, int n, float *q) {
-				
-				int var = 0;
-				
-				for (int i = 0; i < n; i++) {
-					
-					if (criterio(*(p + i), valor) == 1) {
-						
-						*(q + var) = *(p + i);
-						var++;
-					}
-				}
-			}
-			
-			void mostrar_piezas(char *mensaje, float *p, int n){
-				
-				printf("Piezas %s:\n", mensaje);
-				
-				for (int i = 0; i < n; i++) {
-					
-					printf("Diámetro: %.2f\n", *(p + i));
-				}
-			}
+}
+	
+void mostrar_piezas(char *mensaje, float *p, int n){
+	
+	printf("Piezas %s:\n", mensaje);
+	
+	for (int i = 0; i < n; i++) {
+	
+		printf("Diámetro: %.2f\n", *(p + i));
+	}
+}
